@@ -1,0 +1,13 @@
+require 'autotest/growl'
+require 'autotest/restart' 
+require 'autotest/timestamp' 
+
+Autotest.add_hook :initialize do |autotest|
+%w{.git .svn .hg .DS_Store ._* vendor tmp log doc}.each do |exception|
+    autotest.add_exception(exception)
+end
+end
+
+Autotest::Growl::clear_terminal = false
+Autotest::Growl::sticky_failure_notifications = true
+Autotest::Growl::show_modified_files = true
