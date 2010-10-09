@@ -8,6 +8,13 @@ Autotest.add_hook :initialize do |autotest|
 end
 end
 
+Autotest.add_hook :initialize do |autotest|
+  autotest.add_mapping(%r%^spec/(requests)/.*rb$%) do|filename, _|
+    filename
+  end
+end 
+
+
 Autotest::Growl::clear_terminal = false
 Autotest::Growl::sticky_failure_notifications = true
 Autotest::Growl::show_modified_files = true
