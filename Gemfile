@@ -9,6 +9,7 @@ group :development do
   gem 'annotate-models', '1.0.4'
   gem 'faker', '0.3.1'
   gem 'will_paginate', '3.0.pre2'
+  gem 'whenever', '0.5.3'
 end
 
 group :test do

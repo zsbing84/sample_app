@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    aaronh-chronic (0.3.9)
     abstract (1.0.0)
     actionmailer (3.0.0)
       actionpack (= 3.0.0)
@@ -91,6 +92,9 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    whenever (0.5.3)
+      aaronh-chronic (>= 0.3.9)
+      activesupport (>= 2.3.4)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -107,4 +111,5 @@ DEPENDENCIES
   spork (= 0.8.4)
   sqlite3-ruby (= 1.2.5)
   webrat (= 0.7.1)
+  whenever (= 0.5.3)
   will_paginate (= 3.0.pre2)
