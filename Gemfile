@@ -10,6 +10,7 @@ gem 'annotate-models', '1.0.4'
 gem 'faker', '0.3.1'
 gem 'will_paginate', '3.0.pre2'
 gem 'whenever', '0.5.3'
+gem 'authlogic', '2.1.6'
 
 
 group :test do

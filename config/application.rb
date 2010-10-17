@@ -47,5 +47,26 @@ module SampleApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    config.gem "authlogic"
+        
+    config.action_mailer.raise_delivery_errors = true
+
+		# set delivery method to :smtp, :sendmail or :test
+		config.action_mailer.delivery_method = :smtp
+		
+		# these options are only needed if you choose smtp delivery
+		config.action_mailer.delivery_method = :smtp 
+		config.action_mailer.smtp_settings = {  
+			:address => "smtp.gmail.com",  
+			:port => 587,  
+			:domain => 'baci.lindsaar.net',  
+			:user_name => 'zsbing84',  
+			:password => 'laopo850723',  
+			:authentication => 'plain',  
+			:enable_starttls_auto => true } 
+		
+		config.action_mailer.default_url_options = {:host => "127.0.0.1:3000"}
+
   end
 end
