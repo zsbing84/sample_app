@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     c.login_field = 'email'
   end
 
-	attr_accessible :login, :email, :password, :password_confirmation
+	attr_accessible :login, :email, :password, :password_confirmation, :birthday
 
 	has_many :microposts, :dependent => :destroy
 	has_many :relationships, :foreign_key => "follower_id",
@@ -46,5 +46,13 @@ class User < ActiveRecord::Base
     self.active = true
     save
   end
+  
+  def self.search(search)
+	  if search
+	    find(:all, :conditions => ['login LIKE ?', "%#{search}%"])
+	  else
+	    find(:all)
+	  end
+	end
 
  end
