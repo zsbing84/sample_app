@@ -4,12 +4,9 @@ class UsersController < ApplicationController
 	before_filter :admin_user,   :only => :destroy
 	
 	def index
+		sleep 2
     @title = "All users"
-    @users = User.search(params[:search]).paginate(:page => params[:page])
-    respond_to do |format|
-      format.html { render }
-      format.js
-    end
+    @users = User.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 
   def show

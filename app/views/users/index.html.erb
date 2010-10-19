@@ -7,11 +7,7 @@
   </p>
 <% end %>
 
-<%= will_paginate %>
-
-<ul class="users">
-  <%= render @users %>
-</ul>
-
-<%= will_paginate %>
-
+<%= javascript_include_tag 'pagination.js' %>
+<div id="users">  
+  <%= render 'users' %>  
+</div>
