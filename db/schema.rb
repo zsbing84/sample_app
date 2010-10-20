@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(:version => 20101017024346) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.boolean  "admin",             :default => false
-    t.string   "persistence_token"
+    t.string   "persistence_token", :default => "f",   :null => false
     t.boolean  "active",            :default => false, :null => false
-    t.string   "perishable_token"
+    t.string   "perishable_token",  :default => "f",   :null => false
     t.date     "birthday"
   end
 
