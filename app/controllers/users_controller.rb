@@ -3,10 +3,11 @@ class UsersController < ApplicationController
 	before_filter :correct_user, :only => [:edit, :update]
 	before_filter :admin_user,   :only => :destroy
 	
+	helper_method :sort_column, :sort_direction  
+	
 	def index
-		sleep 2
     @title = "All users"
-    @users = User.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    @users = User.order(sort_column + ' ' + sort_direction).paginate(:per_page => 10, :page => params[:page])  
   end
 
   def show
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
-
+    
 private
 	
 	def correct_user
@@ -79,5 +80,13 @@ private
 	def admin_user 
 		redirect_to(root_path) unless current_user.admin?
 	end
+	
+	def sort_column  
+     User.column_names.include?(params[:sort]) ? params[:sort] : "login"  
+  end  
+    
+  def sort_direction  
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc" 
+  end
    
 end

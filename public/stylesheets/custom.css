@@ -240,3 +240,16 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+.pretty th .current {  
+  padding-right: 12px;  
+  background-repeat: no-repeat;  
+  background-position: right center;  
+}  
+.pretty th .asc {   
+  background-image: url(/images/up_arrow.pgn);   
+}  
+  
+.pretty th .desc {   
+  background-image: url(/images/down_arrow.pgn);   
+}
