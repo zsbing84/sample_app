@@ -10,3 +10,60 @@
 <div id="users">  
   <%= render 'users' %>  
 </div>
+
+
+
+
+
+<table>  
+ <tr>  
+		<th><%= link_to "Name", :sort => "login" %></th>  
+		<th><%= link_to "Birthday", :sort => "birthday" %></th>  
+		<th><%= link_to "Age", :sort => "age" %></th>
+ </tr>  
+ <% for user in @users %>  
+ <tr>  
+   <td><%= user.login %></td>  
+   <td><%= user.birthday.strftime("%B %e, %Y") %></td>  
+	 <td><%= user.age %></td>  
+ </tr>  
+ <% end %>
+</table>
+
+
+
+
+
+
+<div id="users_chart" style="width: 560px; height: 300px;"></div> 
+<script type="text/javascript" charset="utf-8">
+$(function () {  
+ new Highcharts.Chart({  
+   chart: { renderTo: 'users_chart' },  
+   title: { text: 'Users by Age' },  
+   xAxis: { 
+		 type: 'integer',
+		 title: { text: 'Generation' }
+	 },  
+   yAxis: {  
+		 type: 'integer',
+     title: { text: 'People' },
+		 min: 0,
+		 tickInterval: 5
+	 },  
+	 tooltip: {  
+	   formatter: function () {  
+	     return this.x + '(Generation)' + ': ' 
+	       + this.y  + '(People)';  
+	   }  
+	 },      
+	 series: [  
+	 {  
+	   name: "Users Chart",  
+	   pointInterval: 10,  
+	   pointStart: 10,  
+	   data: <%= users_chart_series() %>
+	 }]  
+	});  
+});
+</script>

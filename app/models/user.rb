@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     c.login_field = 'email'
   end
 
-	attr_accessible :login, :email, :password, :password_confirmation, :birthday
+	attr_accessible :login, :email, :password, :password_confirmation, :birthday, :age
 
 	has_many :microposts, :dependent => :destroy
 	has_many :relationships, :foreign_key => "follower_id",
