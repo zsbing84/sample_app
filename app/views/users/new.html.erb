@@ -1,27 +1,10 @@
 <h1>Sign up</h1>
 
-<%= form_for(@user) do |f| %>
-  <div class="field">
-    <%= f.label :login, "Username" %><br />
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.text_field :birthday %>
-  </div>
-  <div class="field">
-    <%= f.label :password, "Password" %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+ <%= simple_form_for @user do |f| %>  
+   <%= f.input :login %>  
+   <%= f.input :email %>  
+   <%= f.input :birthday, :as => :text_field %>  
+   <%= f.input :password %>  
+   <%= f.input :password_confirmation %>  
+   <%= f.button :submit %>  
+ <% end %> 

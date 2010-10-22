@@ -11,6 +11,7 @@ gem 'faker', '0.3.1'
 gem 'will_paginate', '3.0.pre2'
 gem 'whenever', '0.5.3'
 gem 'authlogic', '2.1.6'
+gem 'simple_form', '1.2.2'
 
 
 group :test do

@@ -1,12 +1,23 @@
-<%= will_paginate @users %>  
-<% @users.each do |user| %>  
-	<li>
-	  <%= gravatar_for user, :size => 30 %>
-	  <%= link_to user.login, user %>
-	  <% if current_user.admin? %>
-	  <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
-	                              :title => "Delete #{user.login}" %>
-	  <% end %>
-	 </li>
-<% end %>  
-<%= will_paginate @users %>
+
+<%= will_paginate @users %> 
+<table class="pretty"> 
+	<thead>
+		 <tr>  
+				<th class="users_sort"><%= sortable "login" %></th>  
+				<th class="users_sort"><%= sortable "birthday" %></th>  
+				<th class="users_sort"><%= sortable "age" %></th> 
+			  <th><%= "link" %></th>  
+		 </tr>
+	</thead>
+	<tbody>
+		 <% for user in @users %>  
+		 <tr>  
+		   <td><%= user.login %></td>  
+		   <td><%= user.birthday.strftime("%B %e, %Y") %></td>  
+			 <td><%= user.age %></td>  
+			 <td><%= link_to "detail", user%></td>
+		 </tr>  
+		 <% end %> 
+	</tbody>
+</table>
+<%= will_paginate @users%>
